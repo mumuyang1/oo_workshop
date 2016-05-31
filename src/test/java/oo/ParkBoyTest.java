@@ -18,7 +18,9 @@ public class ParkBoyTest {
     public void setUp() throws Exception {
         parkLot1 = new ParkLot(2);
         parkLot2 = new ParkLot(2);
-        pb = new ParkBoy(parkLot1, parkLot2);
+
+        ParkStrategy sillyParkStrategy = new SillyParkStrategy();
+        pb = new ParkBoy(sillyParkStrategy, parkLot1, parkLot2);
     }
 
     @Test

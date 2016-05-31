@@ -8,16 +8,15 @@ import java.util.Optional;
 public class ParkBoy {
 
     private final List<ParkLot> parkLots;
+    private ParkStrategy parkStrategy;
 
-    public ParkBoy(ParkLot... parkLots) {
+    public ParkBoy(ParkStrategy parkStrategy, ParkLot... parkLots) {
+        this.parkStrategy = parkStrategy;
         this.parkLots = Lists.newArrayList(parkLots);
     }
 
     public Optional<String> park(Car car) {
-        ParkLot parkLot = this.parkLots.stream().
-                filter(p -> p.getRestSpace() > 0).
-                findFirst().
-                orElse(parkLots.get(0));
+        ParkLot parkLot = this.parkStrategy.findParkLot(parkLots);
         return parkLot.park(car);
     }
 

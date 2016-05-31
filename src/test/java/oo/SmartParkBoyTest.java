@@ -17,12 +17,12 @@ public class SmartParkBoyTest {
         parkLot2.park(new Car("2"));
 
         Car car = new Car("3");
-        SmartParkBoy smartParkBoy = new SmartParkBoy(parkLot1, parkLot2);
+
+        ParkStrategy smartParkStrategy = new SmartParkStrategy();
+        ParkBoy smartParkBoy = new ParkBoy(smartParkStrategy, parkLot1, parkLot2);
         Optional<String> ticket = smartParkBoy.park(car);
 
         assertThat(ticket.isPresent(), is(true));
         assertThat(parkLot2.unPark(ticket.get()).get(), is(car));
-
     }
-
 }
