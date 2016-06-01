@@ -4,14 +4,14 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
-public class NormalParkStrategy implements ParkStrategy {
+public class NormalParkingStrategy implements ParkingStrategy {
 
     @Override
-    public ParkLot findParkLot(List<ParkLot> parkLots) {
-        return Lists.newArrayList(parkLots).
+    public ParkingLot findParkLot(List<ParkingLot> parkingLots) {
+        return Lists.newArrayList(parkingLots).
                 stream().
                 sorted((o1, o2) -> Integer.compare(o2.getRestSpace(), o1.getRestSpace())).
                 findFirst().
-                orElse(parkLots.get(0));
+                orElse(parkingLots.get(0));
     }
 }

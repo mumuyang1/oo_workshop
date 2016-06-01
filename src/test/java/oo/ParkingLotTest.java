@@ -8,13 +8,13 @@ import java.util.Optional;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class ParkLotTest {
+public class ParkingLotTest {
 
-    private ParkLot p;
+    private ParkingLot p;
 
     @Before
     public void setUp() throws Exception {
-        p = new ParkLot(2);
+        p = new ParkingLot(2);
     }
 
 

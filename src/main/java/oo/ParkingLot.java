@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class ParkLot {
+public class ParkingLot {
     private final int num;
     private Map<String, Car> cars = new HashMap<>();
 
-    public ParkLot(int num) {
+    public ParkingLot(int num) {
         this.num = num;
     }
 

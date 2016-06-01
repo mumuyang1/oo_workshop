@@ -8,19 +8,19 @@ import java.util.Optional;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class ParkBoyTest {
-    private ParkBoy pb;
-    private ParkLot parkLot1;
-    private ParkLot parkLot2;
+public class ParkingBoyTest {
+    private ParkingBoy pb;
+    private ParkingLot parkingLot1;
+    private ParkingLot parkingLot2;
 
 
     @Before
     public void setUp() throws Exception {
-        parkLot1 = new ParkLot(2);
-        parkLot2 = new ParkLot(2);
+        parkingLot1 = new ParkingLot(2);
+        parkingLot2 = new ParkingLot(2);
 
-        ParkStrategy sillyParkStrategy = new SillyParkStrategy();
-        pb = new ParkBoy(sillyParkStrategy, parkLot1, parkLot2);
+        ParkingStrategy sillyParkingStrategy = new SillyParkingStrategy();
+        pb = new ParkingBoy(sillyParkingStrategy, parkingLot1, parkingLot2);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class ParkBoyTest {
         Optional<String> ticket = pb.park(car);
 
         assertThat(ticket.isPresent(), is(true));
-        assertThat(parkLot1.unPark(ticket.get()).get(), is(car));
+        assertThat(parkingLot1.unPark(ticket.get()).get(), is(car));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class ParkBoyTest {
         Optional<String> ticket = pb.park(car);
 
         assertThat(ticket.isPresent(), is(true));
-        assertThat(parkLot2.unPark(ticket.get()).get(), is(car));
+        assertThat(parkingLot2.unPark(ticket.get()).get(), is(car));
     }
 
 
